@@ -85,12 +85,12 @@ doc:
 
 # Creates the rebar node.
 node:
-	(mkdir -p rel && pushd rel && ${REBAR} create-node nodeid=${NAME} && popd)
+	(mkdir -p rel && cd rel && ${REBAR} create-node nodeid=${NAME} && cd ..)
 
 # Creates a release.
 release:
 	@echo 'Generating ${NAME} release'
-	@(mkdir -p rel && pushd rel && ${REBAR} generate && popd)
+	@(mkdir -p rel && cd rel && ${REBAR} generate && cd ..)
 
 # Runs the release, no console.
 run:
